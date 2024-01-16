@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMS - Environmental Management System</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #2C3E50;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: black;
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+
+        nav {
+            background-color: #228B22;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #006400;
+        }
+
+        section {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #228B22;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        section h1, section h2 {
+            color: #fff;
+        }
+
+        footer {
+            margin-top: auto;
+            text-align: center;
+            padding: 10px;
+            background-color: #228B22;
+            width: 100%;
+        }
+
+        .pdf-section {
+            cursor: pointer;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: #228B22;
+            transition: background-color 0.3s;
+        }
+
+        .pdf-section:hover {
+            background-color: #006400;
+        }
+
+        #pdf-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>EMERALD</h1>
+        <h2>INTERNAL COMMUNICATION</h2>
+        <button onclick="logout()">Logout</button>
+    </header>
+
+    <nav>
+        <a href="mainpage.html">INTERNAL COMMUNICATION</a>
+        <a href="qms.html">QMS</a>
+        <a href="ems.html">EMS</a>
+        <a href="lms-nabl.html">LMS-NABL</a>
+    </nav>
+
+    <section>
+        <h1>EMS - Environmental Management System</h1>
+
+        <section class="pdf-section" onclick="loadPDF('ems_environmental_policy.pdf')">
+            <h2>Environmental Policy</h2>
+        </section>
+
+        <section class="pdf-section" onclick="loadPDF('ems_procedure.pdf')">
+            <h2>EMS - Procedure</h2>
+        </section>
+
+        <section class="pdf-section" onclick="loadPDF('ems_objectives.pdf')">
+            <h2>EMS - Objectives</h2>
+        </section>
+
+        <section class="pdf-section" onclick="loadPDF('aspect_impact_study.pdf')">
+            <h2>Aspect & Impact Study</h2>
+        </section>
+
+        <section class="pdf-section" onclick="loadPDF('compliance_monitoring.pdf')">
+            <h2>Compliance Monitoring</h2>
+        </section>
+
+        <section class="pdf-section" onclick="loadPDF('internal_environmental_audit.pdf')">
+            <h2>Internal Environmental Audit (IEA)</h2>
+        </section>
+    </section>
+
+    <footer>
+        &copy; 2024 EMERALD
+    </footer>
+
+    <script>
+        function logout() {
+            // Implement your logout logic here
+            alert('Logout clicked');
+        }
+
+        function loadPDF(pdfFile) {
+            const embedElement = document.createElement('embed');
+            embedElement.src = pdfFile;
+            document.getElementById('pdf-container').innerHTML = '';
+            document.getElementById('pdf-container').appendChild(embedElement);
+        }
+    </script>
+
+    <div id="pdf-container"></div>
+
+</body>
+</html>
